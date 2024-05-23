@@ -39,23 +39,24 @@ export default function Home() {
 
   const LevelRow = ({ v, index } : { v: number; index:number }) => {
     const [updating, setUpdating] = useState<boolean>(false);
-    const [value, setValue] = useState<number>(v);
+    const [value, setValue] = useState<number | string>(v);
 
     return (
       <div key={index} className="flex gap-2 border-t border-t-neutral-800">
         <input 
-          className="flex-1 p-2 pl-0 w-5 outline-none bg-transparent hide-spin-button"
+          className="flex-1 p-2 pl-0 w-5 outline-none bg-transparent hide-spin-button disabled:text-gray-200"
           value={value}
-          onChange={(e) => setValue(Number(e.currentTarget.value))}
+          onChange={(e) => setValue(e.currentTarget.value ? Number(e.currentTarget.value) : '')}
           disabled={!updating} 
           type="number"
           inputMode="numeric"
+          autoFocus
         />
         <div className="flex flex-1 gap-2 items-center">
           <button
             className=""
             onClick={() => {
-              updating && updateLevel(index, value);
+              updating && updateLevel(index, Number(value));
               setUpdating(prev => !prev);
             }}
           >
@@ -80,7 +81,7 @@ export default function Home() {
   }, [levels]);
   
   return (
-    <main className="flex flex-col mx-auto p-4 min-h-screen sm:min-h-[300px] md:min-h-[400px] lg:min-h-[550px] md:max-w-4xl">
+    <main className="flex flex-col mx-auto p-4 min-h-dvh sm:min-h-[300px] md:min-h-[400px] lg:min-h-[550px] md:max-w-4xl">
       <div className="flex flex-col">
         <h1 className="font-extrabold text-2xl sm:text-3xl md:text-4xl tracking-tighter text-balance p-2 pl-0 mt-5">
           Calculate Your Total Level
