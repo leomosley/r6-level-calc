@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import clsx from "clsx";
 import { HiCheck, HiOutlinePencil, HiOutlinePencilAlt, HiPlus, HiTrash, HiX } from "react-icons/hi";
-import { getTotal } from "@/utils/calculate";
+import { cn, getTotal } from "@/lib/utils";
 
 export default function Home() {
   const [levels, setLevels] = useState<number[]>([]);
@@ -98,7 +97,7 @@ export default function Home() {
           <span className="flex-1 p-2 pl-0">Total XP {total && total.xp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
         </div>
       </div>
-      <div className={clsx(
+      <div className={cn(
         "flex items-center mx-auto mt-auto",
         "px-4 py-2 bg-neutral-900 gap-2 rounded-full"
       )}>
@@ -111,7 +110,7 @@ export default function Home() {
           placeholder="Enter level"
         />
         <button
-          className={clsx(
+          className={cn(
             "p-1 rounded-full transition",
             "hover:bg-neutral-800 cursor-pointer",
           )}

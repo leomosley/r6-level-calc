@@ -1,3 +1,11 @@
+import { ListItem } from "@/components/level-list";
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
 const xpRequirements: { [key: number]: number } = {
   0: 1000,
   1: 1500,
@@ -79,7 +87,6 @@ export function getLevel(xpTotal: number): number {
 
 export function getTotal(levels: number[]): { level: number, xp: number } {
   let totalXp = 0;
-  let totalLevel = 0;
 
   for (const level of levels) {
     totalXp += getXp(level);
