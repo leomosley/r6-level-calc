@@ -3,6 +3,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Inter as FontSans } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export const metadata: Metadata = {
   title: "R6 Level Calculator",
@@ -27,9 +28,13 @@ export default function RootLayout({
       )}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
+          enableSystem  
         >
           {children}
+          <div className=" absolute right-4 bottom-4">
+            <ModeToggle />
+          </div>
         </ThemeProvider>
       </body>
     </html>
