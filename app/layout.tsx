@@ -9,6 +9,9 @@ import ClientOnly from "@/components/client-only";
 export const metadata: Metadata = {
   title: "R6 Level Calculator",
   description: "Calculate total level",
+  icons: [
+    { url: 'icon.png' }
+  ]
 };
 
 const fontSans = FontSans({
