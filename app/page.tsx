@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button";
 import { ArrowUpDown } from "lucide-react";
 import { Label } from "@/components/ui/label";
+import { BsGithub } from "react-icons/bs";
 
 export default function Home() {
   const [storedLevels, setStoredLevels] = useLocalStorage<number[]>("levels", []);
@@ -45,6 +46,18 @@ export default function Home() {
   
   return (
     <main className="flex flex-col mx-auto p-4 min-h-dvh md:max-w-4xl">
+      <div className="flex mt-4 sm:mt-10">
+        <Label className="text-3xl sm:text-4xl font-semibold tracking-tighter">R6 Level Calculator</Label>
+        <Button
+          variant="ghost"
+          className="ml-auto p-2 my-auto"
+        >
+          <a target="_blank" href="https://github.com/leomosley/r6-level-calc">
+            <BsGithub className="w-5 h-5" />
+          </a>
+        </Button>
+      </div>
+      <Label className="font-normal text-sm mb-2">Enter each of your accounts level to find out your combined stats.</Label>
       <Card>
         <CardHeader className="flex flex-row justify-between items-center gap-2">
           <div className="flex-1">
