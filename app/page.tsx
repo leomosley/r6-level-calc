@@ -16,6 +16,10 @@ export default function Home() {
   const [total, setTotal] = useState<{ level: number; xp: number} | undefined>()
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const handleKeyDown = (e: KeyboardEvent) => {
+    e.key === 'Enter' && addLevel();
+  }
+
   const addLevel = () => {
     if (inputRef.current) {
       const value = inputRef.current.valueAsNumber;
@@ -30,6 +34,14 @@ export default function Home() {
     setTotal(getTotal(levels));
     setStoredLevels(levels);
   }, [levels]);
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
   
   return (
     <main className="flex flex-col mx-auto p-4 min-h-screen md:max-w-4xl">
