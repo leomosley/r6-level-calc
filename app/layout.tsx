@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Inter as FontSans } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/mode-toggle";
+import ClientOnly from "@/components/client-only";
 
 export const metadata: Metadata = {
   title: "R6 Level Calculator",
@@ -31,7 +32,9 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem  
         >
-          {children}
+          <ClientOnly>
+            {children}
+          </ClientOnly>
           <div className=" absolute right-4 bottom-4">
             <ModeToggle />
           </div>

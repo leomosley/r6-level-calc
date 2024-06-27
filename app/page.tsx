@@ -1,17 +1,18 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { HiCheck, HiOutlinePencil, HiOutlinePencilAlt, HiPlus, HiTrash, HiX } from "react-icons/hi";
+import { useLocalStorage } from "@/lib/hooks/useLocalStorage";
 import { cn, getTotal } from "@/lib/utils";
 import { isValid, Row } from "@/components/row";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { ArrowUpDown } from "lucide-react";
 import { Label } from "@/components/ui/label";
 
 export default function Home() {
-  const [levels, setLevels] = useState<number[]>([]);
+  const [storedLevels, setStoredLevels] = useLocalStorage<number[]>("levels", []);
+  const [levels, setLevels] = useState<number[]>(storedLevels);
   const [total, setTotal] = useState<{ level: number; xp: number} | undefined>()
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -27,6 +28,7 @@ export default function Home() {
 
   useEffect(() => {
     setTotal(getTotal(levels));
+    setStoredLevels(levels);
   }, [levels]);
   
   return (
