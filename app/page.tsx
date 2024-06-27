@@ -44,7 +44,7 @@ export default function Home() {
   }, []);
   
   return (
-    <main className="flex flex-col mx-auto p-4 min-h-screen md:max-w-4xl">
+    <main className="flex flex-col mx-auto p-4 min-h-dvh md:max-w-4xl">
       <Card>
         <CardHeader className="flex flex-row justify-between items-center gap-2">
           <div className="flex-1">
