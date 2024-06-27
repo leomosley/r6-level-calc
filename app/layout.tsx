@@ -38,7 +38,7 @@ export default function RootLayout({
           <ClientOnly>
             {children}
           </ClientOnly>
-          <div className=" absolute right-4 bottom-4">
+          <div className="absolute right-4 bottom-4">
             <ModeToggle />
           </div>
         </ThemeProvider>

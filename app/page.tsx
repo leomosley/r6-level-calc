@@ -50,7 +50,8 @@ export default function Home() {
         <Label className="text-3xl sm:text-4xl font-semibold tracking-tighter">R6 Level Calculator</Label>
         <Button
           variant="ghost"
-          className="ml-auto p-2 my-auto"
+          className="ml-auto mt-auto"
+          size="icon"
         >
           <a target="_blank" href="https://github.com/leomosley/r6-level-calc">
             <BsGithub className="w-5 h-5" />
@@ -87,7 +88,7 @@ export default function Home() {
         <CardFooter className="flex justify-between items-end">
           <div className="hidden sm:block">
             <Button
-              variant="ghost"
+              variant="outline"
               onClick={() => setLevels([])}
             >
               Clear
@@ -123,6 +124,15 @@ export default function Home() {
         >
           <HiPlus className="w-5 h-5" />
         </button>
+      </div>
+      <div className="absolute left-4 bottom-4 block sm:hidden">
+        <Button
+          variant="outline"
+          onClick={() => setLevels([])}
+          size="icon"
+        >
+          <HiTrash className="h-[1.2rem] w-[1.2rem]" />
+        </Button>
       </div>
     </main>
   );
