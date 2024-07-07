@@ -47,7 +47,7 @@
     return (
       <main className="flex flex-col mx-auto p-4 min-h-dvh md:max-w-4xl">
         <div className="flex mt-4 sm:mt-10">
-          <Label className="text-3xl sm:text-4xl font-semibold tracking-tighter">R6 Level Calculator</Label>
+          <Label className="text-3xl sm:text-4xl font-bold tracking-tighter">R6 Level Calculator</Label>
           <Button
             variant="ghost"
             className="ml-auto mt-auto"
