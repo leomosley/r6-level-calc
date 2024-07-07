@@ -104,25 +104,24 @@
         </Card>
         <div className={cn(
           "flex items-center mx-auto mt-auto",
-          "px-4 py-2 bg-neutral-900 gap-2 rounded-full"
+          "px-2 py-2 bg-muted gap-2 rounded-full"
         )}>
           <input 
             ref={inputRef}
-            className="bg-transparent outline-none hide-spin-button"
+            className="pl-2 bg-transparent outline-none hide-spin-button"
             autoFocus
             type="number"
             inputMode="numeric"
             placeholder="Enter level"
           />
-          <button
-            className={cn(
-              "p-1 rounded-full transition",
-              "hover:bg-neutral-800 cursor-pointer",
-            )}
+          <Button
+            variant="ghost"
+            size="icon"
+            className={"px-1 py-1 rounded-full hover:bg-muted-foreground/10"}
             onClick={addLevel}
           >
-            <HiPlus className="w-5 h-5" />
-          </button>
+            <HiPlus className="text-muted-foreground w-5 h-5" />
+          </Button>
         </div>
       </main>
     );
