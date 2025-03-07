@@ -89,3 +89,7 @@ export function getTotal(levels: number[]): { level: number, xp: number } {
     xp: totalXp
   }
 }
+
+export function isValid(input: any) {
+  return !isNaN(input) && input > 0 && input < 2000;
+}
